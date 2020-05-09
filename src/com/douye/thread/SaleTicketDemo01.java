@@ -27,32 +27,35 @@ public class SaleTicketDemo01 {
     public static void main(String[] args) {
         Ticket ticket = new Ticket();
         System.out.println("-------主线程开启--------");
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < 40; i++) {
-                    ticket.saleTicket();
-                }
-            }
-        }, "A").start();
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < 40; i++) {
-                    ticket.saleTicket();
-                }
-            }
-        }, "B").start();
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i < 40; i++) {
-                    ticket.saleTicket();
-                }
-            }
-        }, "C").start();
+        new Thread(()->{ for (int i = 0; i < 40; i++) { ticket.saleTicket(); } },"AA").start();
+        new Thread(()->{ for (int i = 0; i < 40; i++) { ticket.saleTicket(); } },"BB").start();
+        new Thread(()->{ for (int i = 0; i < 40; i++) { ticket.saleTicket(); } },"CC").start();
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                for (int i = 0; i < 40; i++) {
+//                    ticket.saleTicket();
+//                }
+//            }
+//        }, "A").start();
+//
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                for (int i = 0; i < 40; i++) {
+//                    ticket.saleTicket();
+//                }
+//            }
+//        }, "B").start();
+//
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                for (int i = 0; i < 40; i++) {
+//                    ticket.saleTicket();
+//                }
+//            }
+//        }, "C").start();
 
         System.out.println("-------主线程结束--------");
     }
