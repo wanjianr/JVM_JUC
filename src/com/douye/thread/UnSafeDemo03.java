@@ -7,6 +7,8 @@ import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
  * ArrayList，set，map线程不安全，在并发场景中会报并发修改异常：java.util.ConcurrentModificationException
+ * 错误原因： A线程正在执行写操作，恰巧B线程抢占到资源
+ *
  * 解决方法：
  * 1. Vector是线程安全的
  * 2. 使用工具类Collections.synchronizedList(new ArrayList<>());
