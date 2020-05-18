@@ -1,5 +1,7 @@
 package com.douye.thread;
 
+import com.douye.enumerate.CountryEnum;
+
 import java.util.concurrent.CountDownLatch;
 
 /**
@@ -17,7 +19,7 @@ public class CountDownLatchDemo08 {
             new Thread(()->{
                 System.out.println(Thread.currentThread().getName()+" 离开教室");
                 countDownLatch.countDown();
-            },String.valueOf(i)).start();
+            }, CountryEnum.forEach_CountryEnum(i+1).getRetMessage()).start();
         }
         countDownLatch.await();
         System.out.println("班长关闭教室");

@@ -9,6 +9,11 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
  * 2020年5月16日13:57:28
  *
  * 读写锁
+ *
+ * 独占锁：指该锁一次只能被一个线程所持有，ReentrantLock和Synchronized而言都是独占锁
+ * 共享锁：指该锁可被多个线程所拥有
+ *      ReadWriteLock的读锁是共享锁，写锁是独占锁
+ *      共享锁可保证并发读的高效性，而读写、写读、写写的过程是互斥的
  */
 class MyCatch {
     private volatile HashMap<String,Object> hashMap = new HashMap<>();
